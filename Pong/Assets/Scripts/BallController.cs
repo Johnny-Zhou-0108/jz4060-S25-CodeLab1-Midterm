@@ -41,6 +41,7 @@ public class BallController : MonoBehaviour
     {
         gameStarted = false;
         
+        
         // The Y-Speed cannot be 0, otherwise it will never reach the board
         if (Random.Range(0, 2) == 0)
         {
@@ -91,10 +92,10 @@ public class BallController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Bonus"))
         {
             Vector2 bonusPosition = collision.transform.position;
-            Vector2 boxSize = new Vector2(0.6f, 0.6f);
+            Vector2 boxSize = new Vector2(0.35f, 0.35f);
             float angle = 0f;
 
-            //DebugBox(bonusPosition, boxSize);
+            DebugBox(bonusPosition, boxSize);
             
             Collider2D[] colliders = Physics2D.OverlapBoxAll(bonusPosition, boxSize, angle);
             foreach (Collider2D col in colliders)
@@ -143,11 +144,11 @@ public class BallController : MonoBehaviour
         gameStarted = true;
     }
     
-    // void DebugBox(Vector2 position, Vector2 size)
-    // {
-    //     Debug.DrawLine(position + new Vector2(-size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, -size.y / 2), Color.red, 2f);
-    //     Debug.DrawLine(position + new Vector2(size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, size.y / 2), Color.red, 2f);
-    //     Debug.DrawLine(position + new Vector2(size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, size.y / 2), Color.red, 2f);
-    //     Debug.DrawLine(position + new Vector2(-size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, -size.y / 2), Color.red, 2f);
-    // }
+    void DebugBox(Vector2 position, Vector2 size)
+    {
+        Debug.DrawLine(position + new Vector2(-size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, -size.y / 2), Color.red, 2f);
+        Debug.DrawLine(position + new Vector2(size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, size.y / 2), Color.red, 2f);
+        Debug.DrawLine(position + new Vector2(size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, size.y / 2), Color.red, 2f);
+        Debug.DrawLine(position + new Vector2(-size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, -size.y / 2), Color.red, 2f);
+    }
 }

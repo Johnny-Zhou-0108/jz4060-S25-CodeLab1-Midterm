@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballSpeed: 3
   gameStarted: 0
-  speedDifficulty: 0.5
+  speedDifficulty: 0.3
   explosionEffect: {fileID: 944344069}
   bounce: {fileID: 1295283197}
   hit: {fileID: 552821746}

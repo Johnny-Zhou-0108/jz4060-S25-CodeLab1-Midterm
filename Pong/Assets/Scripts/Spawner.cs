@@ -37,7 +37,16 @@ public class Spawner : MonoBehaviour
         if (validPosition)
         {
             Instantiate(prefab, spawnPosition, Quaternion.identity);
+            DebugBox(spawnPosition, new Vector2(0.35f, 0.35f));
         }
+    }
+    
+    void DebugBox(Vector2 position, Vector2 size)
+    {
+        Debug.DrawLine(position + new Vector2(-size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, -size.y / 2), Color.red, 20f);
+        Debug.DrawLine(position + new Vector2(size.x / 2, -size.y / 2), position + new Vector2(size.x / 2, size.y / 2), Color.red, 20f);
+        Debug.DrawLine(position + new Vector2(size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, size.y / 2), Color.red, 20f);
+        Debug.DrawLine(position + new Vector2(-size.x / 2, size.y / 2), position + new Vector2(-size.x / 2, -size.y / 2), Color.red, 20f);
     }
 
 }
